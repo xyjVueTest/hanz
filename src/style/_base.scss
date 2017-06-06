@@ -1,0 +1,32 @@
+blockquote, body, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, td, textarea, th, ul {
+  margin: 0;
+  padding: 0
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+q:after, q:before {
+  content: ""
+}
+:focus {
+  outline: 0
+}
+
+body, html {
+  min-height: 100%
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+}
+
+h6 {font-size: 0.12rem;}  //12px
+h5 {font-size: 0.16rem;}  // 16px
+h4 {font-size: 0.22rem;}  // 22px
+h3 {font-size: 0.24rem;}  // 24px
+h2 {font-size: 0.30rem;}   // 30px
+h1 {font-size: 0.36rem;}  // 36px
+

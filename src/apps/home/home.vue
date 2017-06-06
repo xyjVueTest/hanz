@@ -1,80 +1,44 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <div>
-      <canvas ref="myChart" height="400"></canvas>
-    </div>
+  <div class="page-home">
+    <ul class="home-rows">
+      <li v-for="i in data"  @click="go(i.path)">
+        {{i.name}}
+      </li>
+    </ul>
   </div>
 </template>
-
 <script>
   export default {
-    name: 'hello',
+    name: 'hanz-home',
     data () {
       return {
-        msg: '测试chart.js'
+        data: [
+          {name: '简介', path: '/hanz/jj/intro'},
+          {name: '指令', path: '/hanz/jd/intro'},
+          {name: '组件', path: '/hanz/xc/intro'},
+          {name: '插件', path: '/hanz/other/intro'}
+        ]
       }
     },
-    mounted () {
-      let ctx = this.$refs.myChart
-      ctx.width = screen.width
-      let mychar = new MyChart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['一月', '二月', '三月', '四月', '五月', '六月'],
-          datasets: [{
-            label: 'vue测试',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-              'rgba(255,99,132,1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
-        }
-      })
+    methods: {
+      go (path) {
+        console.log(path)
+        this.$router.push({path: path})
+      }
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  h1, h2 {
-    font-weight: normal;
+<style type="text/scss" lang="scss" scoped>
+.page-home{
+  ul>li {
+    display: block;
+    text-align: center;
+    float: left;
+    width:49%;
+    height:.5rem;
+    font-size: .16rem;
+    line-height: .5rem;
+    border:.005rem solid #ddd
   }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
+}
 </style>

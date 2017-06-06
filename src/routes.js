@@ -10,13 +10,13 @@ export default new Router({
       path: '/hanz',
       name: 'hanz',
       component: require('./apps/common/application.vue'),
-      redirect: '/hanz/hello',
+      redirect: '/hanz/home',
       children: [
-        {
-          path: 'hello',
-          name: 'hz-hello',
-          component: require('./apps/home/home.vue')
-        }
+        require('./apps/home/route').name,
+        require('./apps/jd/route').name,
+        require('./apps/jj/route').name,
+        require('./apps/others/route').name,
+        require('./apps/xc/route').name
       ]
     }
   ]
